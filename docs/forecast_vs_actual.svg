@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" width="880" height="400">
+<rect width="880" height="400" fill="#0d1117"/>
+<text x="440" y="22" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#c9d1d9">ARIMA vs LSTM: Forecast Accuracy on 8-Week Test Period</text>
+<text x="440" y="40" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#8b949e">NHS Trauma &amp; Orthopaedics Referrals | Test period: Feb&#8211;Mar 2024 | SARIMA(1,1,1)(1,1,0)[52]</text>
+<line x1="80" y1="330.0" x2="840" y2="330.0" stroke="#30363d" stroke-width="1"/>
+<text x="72" y="334.0" text-anchor="end" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">44k</text>
+<line x1="80" y1="291.4" x2="840" y2="291.4" stroke="#30363d" stroke-width="1"/>
+<text x="72" y="295.4" text-anchor="end" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">46k</text>
+<line x1="80" y1="252.9" x2="840" y2="252.9" stroke="#30363d" stroke-width="1"/>
+<text x="72" y="256.9" text-anchor="end" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">48k</text>
+<line x1="80" y1="214.3" x2="840" y2="214.3" stroke="#30363d" stroke-width="1"/>
+<text x="72" y="218.3" text-anchor="end" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">50k</text>
+<line x1="80" y1="175.7" x2="840" y2="175.7" stroke="#30363d" stroke-width="1"/>
+<text x="72" y="179.7" text-anchor="end" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">52k</text>
+<line x1="80" y1="137.1" x2="840" y2="137.1" stroke="#30363d" stroke-width="1"/>
+<text x="72" y="141.1" text-anchor="end" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">54k</text>
+<line x1="80" y1="98.6" x2="840" y2="98.6" stroke="#30363d" stroke-width="1"/>
+<text x="72" y="102.6" text-anchor="end" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">56k</text>
+<line x1="80" y1="60.0" x2="840" y2="60.0" stroke="#30363d" stroke-width="1"/>
+<text x="72" y="64.0" text-anchor="end" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">58k</text>
+<text x="80.0" y="348" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">11 Feb</text>
+<text x="80.0" y="360" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#8b949e">Wk +1</text>
+<text x="188.6" y="348" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">18 Feb</text>
+<text x="188.6" y="360" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#8b949e">Wk +2</text>
+<text x="297.1" y="348" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">25 Feb</text>
+<text x="297.1" y="360" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#8b949e">Wk +3</text>
+<text x="405.7" y="348" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">03 Mar</text>
+<text x="405.7" y="360" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#8b949e">Wk +4</text>
+<text x="514.3" y="348" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">10 Mar</text>
+<text x="514.3" y="360" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#8b949e">Wk +5</text>
+<text x="622.9" y="348" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">17 Mar</text>
+<text x="622.9" y="360" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#8b949e">Wk +6</text>
+<text x="731.4" y="348" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">24 Mar</text>
+<text x="731.4" y="360" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#8b949e">Wk +7</text>
+<text x="840.0" y="348" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">31 Mar</text>
+<text x="840.0" y="360" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#8b949e">Wk +8</text>
+<line x1="80" y1="60" x2="80" y2="330" stroke="#8b949e" stroke-width="1.5"/>
+<line x1="80" y1="330" x2="840" y2="330" stroke="#8b949e" stroke-width="1.5"/>
+<polyline points="80.0,268.3 188.6,223.9 297.1,114.0 405.7,152.6 514.3,241.3 622.9,135.2 731.4,83.1 840.0,160.3" fill="none" stroke="#41B6E6" stroke-width="2.5" stroke-dasharray="6,3" opacity="0.8"/>
+<polyline points="80.0,206.6 188.6,166.1 297.1,200.8 405.7,154.5 514.3,223.9 622.9,144.9 731.4,127.5 840.0,195.0" fill="none" stroke="#ED8B00" stroke-width="2.5" opacity="0.95"/>
+<polyline points="80.0,218.1 188.6,191.1 297.1,173.8 405.7,183.4 514.3,196.9 622.9,168.0 731.4,154.5 840.0,162.2" fill="none" stroke="#003087" stroke-width="3" opacity="1"/>
+<circle cx="80.0" cy="218.1" r="5" fill="#003087" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="188.6" cy="191.1" r="5" fill="#003087" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="297.1" cy="173.8" r="5" fill="#003087" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="405.7" cy="183.4" r="5" fill="#003087" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="514.3" cy="196.9" r="5" fill="#003087" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="622.9" cy="168.0" r="5" fill="#003087" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="731.4" cy="154.5" r="5" fill="#003087" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="840.0" cy="162.2" r="5" fill="#003087" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="80.0" cy="206.6" r="4.5" fill="#ED8B00" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="188.6" cy="166.1" r="4.5" fill="#ED8B00" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="297.1" cy="200.8" r="4.5" fill="#ED8B00" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="405.7" cy="154.5" r="4.5" fill="#ED8B00" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="514.3" cy="223.9" r="4.5" fill="#ED8B00" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="622.9" cy="144.9" r="4.5" fill="#ED8B00" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="731.4" cy="127.5" r="4.5" fill="#ED8B00" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="840.0" cy="195.0" r="4.5" fill="#ED8B00" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="80.0" cy="268.3" r="4" fill="#41B6E6" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="188.6" cy="223.9" r="4" fill="#41B6E6" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="297.1" cy="114.0" r="4" fill="#41B6E6" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="405.7" cy="152.6" r="4" fill="#41B6E6" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="514.3" cy="241.3" r="4" fill="#41B6E6" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="622.9" cy="135.2" r="4" fill="#41B6E6" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="731.4" cy="83.1" r="4" fill="#41B6E6" stroke="#0d1117" stroke-width="1.5"/>
+<circle cx="840.0" cy="160.3" r="4" fill="#41B6E6" stroke="#0d1117" stroke-width="1.5"/>
+<rect x="96" y="67" width="270" height="72" rx="5" fill="#0d1117" opacity="0.8" stroke="#30363d" stroke-width="1"/>
+<line x1="100" y1="79" x2="124" y2="79" stroke="#003087" stroke-width="3"/>
+<circle cx="112" cy="79" r="4.5" fill="#003087"/>
+<text x="130" y="83" font-family="system-ui,sans-serif" font-size="12" fill="#c9d1d9" font-weight="600">Actual referrals</text>
+<line x1="100" y1="101" x2="124" y2="101" stroke="#ED8B00" stroke-width="2.5"/>
+<circle cx="112" cy="101" r="4" fill="#ED8B00"/>
+<text x="130" y="105" font-family="system-ui,sans-serif" font-size="12" fill="#c9d1d9">ARIMA forecast <tspan font-weight="700" fill="#ED8B00">MAPE 2.4%</tspan></text>
+<line x1="100" y1="123" x2="124" y2="123" stroke="#41B6E6" stroke-width="2.5" stroke-dasharray="6,3"/>
+<circle cx="112" cy="123" r="4" fill="#41B6E6"/>
+<text x="130" y="127" font-family="system-ui,sans-serif" font-size="12" fill="#c9d1d9">LSTM forecast <tspan font-weight="700" fill="#41B6E6">MAPE 4.1%</tspan></text>
+<text x="35" y="200" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#8b949e" transform="rotate(-90,35,200)">Weekly referrals</text>
+</svg>
