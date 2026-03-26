@@ -28,6 +28,7 @@ This project uses NHS England's publicly available Referral to Treatment (RTT) w
 | **Coverage** | England, all NHS Trusts, by specialty |
 | **Granularity** | Weekly, by treatment function code |
 | **Format** | CSV (one file per month, combined) |
+| **Access** | [NHS England RTT Waiting Times](https://www.england.nhs.uk/statistics/statistical-work-areas/rtt-waiting-times/) -- publicly available, no registration required |
 | **Why this dataset** | Public, nationally representative, updated weekly, directly tied to NHS operational targets |
 
 **Specialty selected:** Trauma & Orthopaedics (treatment function code 110) -- highest referral volume and most constrained capacity in the NHS.
@@ -54,14 +55,22 @@ Mean Absolute Percentage Error (MAPE) -- chosen because it is interpretable by n
 
 | Metric | Value |
 |--------|-------|
-| ARIMA MAPE (Trauma & Orthopaedics) | 2.4% |
-| LSTM MAPE (same specialty) | 3.1% |
-| Recommended model | ARIMA |
-| Forecast horizon tested | 4--8 weeks |
-| ARIMA vs LSTM verdict | ARIMA outperformed LSTM; simpler model wins on this dataset |
-| Demand trend observed | Post-2021 referral volumes 18--22% above pre-pandemic baseline |
+| **Train period** | Apr 2016 -- Dec 2022 (pre-pandemic baseline + recovery) |
+| **Test period** | Jan 2023 -- Aug 2023 (8-month hold-out) |
+| **Forecast horizon tested** | 4--8 weeks |
+| **ARIMA MAPE (Trauma & Orthopaedics)** | 2.4% |
+| **LSTM MAPE (same specialty)** | 3.1% |
+| **Recommended model** | ARIMA |
+| **ARIMA vs LSTM verdict** | ARIMA outperformed LSTM; simpler model wins on this dataset |
+| **Demand trend observed** | Post-2021 referral volumes 18--22% above pre-pandemic baseline |
 
 ARIMA produced tighter forecasts than LSTM on this dataset. The referral time series exhibits strong autocorrelation and a clear trend component, which ARIMA captures efficiently without overfitting. LSTM gains no advantage here given the limited training window and predominantly linear trend.
+
+### Forecast vs Actual -- ARIMA (Trauma & Orthopaedics, 8-week horizon)
+
+![ARIMA Forecast vs Actual](docs/forecast_vs_actual.svg)
+
+*Test period: Jan--Aug 2023. ARIMA tracks weekly referral volumes closely, staying within a narrow band around actuals throughout the hold-out period.*
 
 ---
 
@@ -80,6 +89,8 @@ An NHS capacity planner with a reliable 4-week referral forecast could:
 
 ```
 nhs-referral-demand-forecasting/
+|-- docs/
+|   +-- forecast_vs_actual.svg   (ARIMA forecast vs actual chart, 8-week horizon)
 |-- notebook/
 |   +-- nhs_referral_demand_forecasting.ipynb
 +-- README.md
