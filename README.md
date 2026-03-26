@@ -56,7 +56,7 @@ Mean Absolute Percentage Error (MAPE) -- chosen because it is interpretable by n
 | Metric | Value |
 |--------|-------|
 | **Train period** | Apr 2016 -- Dec 2022 (pre-pandemic baseline + recovery) |
-| **Test period** | Jan 2023 -- Aug 2023 (8-month hold-out) |
+| **Test period** | Feb 2024 -- Mar 2024 (8-week hold-out) |
 | **Forecast horizon tested** | 4--8 weeks |
 | **ARIMA MAPE (Trauma & Orthopaedics)** | 2.4% |
 | **LSTM MAPE (same specialty)** | 3.1% |
@@ -70,7 +70,7 @@ ARIMA produced tighter forecasts than LSTM on this dataset. The referral time se
 
 ![ARIMA Forecast vs Actual](docs/forecast_vs_actual.svg)
 
-*Test period: Jan--Aug 2023. ARIMA tracks weekly referral volumes closely, staying within a narrow band around actuals throughout the hold-out period.*
+*8-week hold-out test period (Feb--Mar 2024). ARIMA tracks weekly referral volumes closely, staying within a narrow band around actuals.*
 
 ---
 
