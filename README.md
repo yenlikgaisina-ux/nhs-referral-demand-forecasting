@@ -6,17 +6,17 @@
 [![Methods](https://img.shields.io/badge/Methods-ARIMA%20%7C%20LSTM%20%7C%20Time%20Series-green)]()
 [![Domain](https://img.shields.io/badge/Domain-Healthcare%20Analytics-red)]()
 
-> Forecasting NHS outpatient referral volumes 4 to 8 weeks ahead to support workforce and capacity planning.
+> Forecasting the NHS Trauma & Orthopaedics waiting list 6 months ahead to support NHS Elective Recovery capacity planning.
 
 ---
 
 ## Business Question
 
-> "Can outpatient referral demand be predicted 4 to 8 weeks ahead to support NHS workforce and capacity planning in outpatient services?"
+> "Can the NHS Trauma & Orthopaedics waiting list be predicted 6 months ahead to support workforce and capacity planning under the Elective Recovery Programme?"
 
-Every week, NHS trusts receive thousands of GP referrals for outpatient appointments. Without reliable demand forecasts, capacity planners are forced to react to backlogs rather than anticipate them. This leads to preventable breaches of the 18-week Referral to Treatment (RTT) target and inefficient use of clinical staff.
+NHS England's T&O waiting list peaked at over 700,000 patients in 2022 — a direct consequence of COVID-19 disruption to elective services. Without reliable demand forecasts, capacity planners are forced to react to backlogs rather than anticipate them. This leads to preventable breaches of the 18-week RTT target and inefficient use of clinical staff and theatre capacity.
 
-This project uses NHS England's publicly available Referral to Treatment (RTT) waiting times data to forecast weekly referral volumes using ARIMA and LSTM time series models, targeting Trauma & Orthopaedics — the highest-volume specialty.
+This project uses NHS England's publicly available Referral to Treatment (RTT) Full CSV data to forecast the monthly national T&O waiting list size using ARIMA and LSTM time series models.
 
 ---
 
@@ -24,14 +24,17 @@ This project uses NHS England's publicly available Referral to Treatment (RTT) w
 
 | Property | Detail |
 |---|---|
-| **Source** | NHS England Referral to Treatment Waiting Times |
-| **Coverage** | England, all NHS Trusts, by specialty |
-| **Granularity** | Weekly, by treatment function code |
-| **Format** | CSV (one file per month, combined) |
+| **Source** | NHS England Referral to Treatment Waiting Times — Full CSV files |
+| **Coverage** | England, all NHS Trusts aggregated nationally |
+| **Metric** | Incomplete Pathways (patients on T&O waiting list at end of month) |
+| **Granularity** | Monthly, April 2019 – March 2024 (60 months) |
+| **Format** | ZIP archives containing CSV (one file per month, ~4 MB each) |
 | **Access** | [NHS England RTT Waiting Times](https://www.england.nhs.uk/statistics/statistical-work-areas/rtt-waiting-times/) — publicly available, no registration required |
-| **Why this dataset** | Public, nationally representative, updated weekly, directly tied to NHS operational targets |
+| **Why this dataset** | Real, nationally representative, directly tied to NHS operational targets; downloaded and processed programmatically in the notebook |
 
-**Specialty selected:** Trauma & Orthopaedics (treatment function code 110) — highest referral volume and most constrained capacity in the NHS.
+**Specialty selected:** Trauma & Orthopaedics (Treatment Function Code 110) — highest waiting list volume and most constrained elective capacity in the NHS.
+
+**Note:** Feb–Mar 2022 are linearly interpolated (source files >100 MB due to expanded 62-week+ band reporting introduced that month).
 
 ---
 
@@ -55,23 +58,22 @@ Mean Absolute Percentage Error (MAPE) — chosen because it is interpretable by 
 
 | Metric | Value |
 |---|---|
-| **Train period** | Apr 2016 to Dec 2022 (pre-pandemic baseline + recovery) |
-| **Gap period** | Jan 2023 to Jan 2024 — withheld as a post-surge stabilisation buffer; referral volumes were still re-baselining after pandemic recovery and were not yet stationary enough for reliable evaluation |
-| **Test period** | Feb 2024 to Mar 2024 (8-week hold-out) |
-| **Forecast horizon tested** | 4 to 8 weeks |
-| **ARIMA MAPE (Trauma & Orthopaedics)** | 2.4% |
-| **LSTM MAPE (same specialty)** | 3.1% |
+| **Data source** | Real NHS England RTT Full CSV files (programmatically downloaded) |
+| **Training period** | Jul 2020 – Sep 2023 (~39 months, post-COVID series) |
+| **Test period** | Oct 2023 – Mar 2024 (6-month hold-out) |
+| **Forecast horizon** | 6 months |
+| **ARIMA MAPE** | see notebook output |
+| **LSTM MAPE** | see notebook output |
 | **Recommended model** | ARIMA |
-| **ARIMA vs LSTM verdict** | ARIMA outperformed LSTM; simpler model wins on this dataset |
-| **Demand trend observed** | Post-2021 referral volumes 18 to 22% above pre-pandemic baseline |
+| **T&O waiting list peak** | ~700,000+ patients (mid-2022) — 40% above pre-pandemic level |
 
-ARIMA produced tighter forecasts than LSTM on this dataset. The referral time series exhibits strong autocorrelation and a clear trend component, which ARIMA captures efficiently without overfitting. LSTM gains no advantage here given the limited training window and predominantly linear trend.
+ARIMA produced tighter forecasts than LSTM on this dataset. The T&O waiting list exhibits strong autocorrelation and a clear trend component with annual seasonality (period=12), which SARIMA captures efficiently. LSTM gains no advantage on a series of ~45 monthly observations.
 
-### Forecast vs Actual, ARIMA (Trauma & Orthopaedics, 8-week horizon)
+### Forecast vs Actual, ARIMA (Trauma & Orthopaedics, 6-month horizon)
 
 ![ARIMA Forecast vs Actual](docs/forecast_vs_actual.svg)
 
-*8-week hold-out test period (Feb to Mar 2024). ARIMA tracks weekly referral volumes closely, staying within a narrow band around actuals.*
+*6-month hold-out test period (Oct 2023 – Mar 2024). Based on real NHS England RTT Incomplete Pathways data.*
 
 ---
 
