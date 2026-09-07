@@ -16,7 +16,7 @@
 | **Data** | **574 weeks** of real NHS England RTT referral data (Apr 2013 – Mar 2024) |
 | **Best model** | ARIMA - **MAPE 2.4%**, **MAE ≈ 1,198 referrals/week** |
 | **Runner-up** | LSTM - MAPE 4.1% (the simpler classical model won) |
-| **So what** | Accurate enough to pre-book clinic, theatre and workforce capacity weeks ahead |
+| **So what** | A 2.4% MAPE suggests the model could be useful as an input to short-term capacity planning. Whether this level of accuracy is operationally useful would need testing with Trust-level data, local capacity constraints and NHS planning teams. |
 
 ---
 
@@ -72,7 +72,7 @@ A **2.4% MAPE** means weekly referral forecasts land, on average, within ~2.4% o
 - **Pre-schedule clinic and theatre capacity** weeks ahead instead of at short notice
 - **Flag demand surges early**, triggering escalation before 18-week RTT breaches occur
 - **Justify bank/agency workforce spend** with validated forecasts rather than last month's figures
-- **Reduce waiting times** by allocating capacity before bottlenecks form
+- Support earlier discussion of potential capacity pressures before they become visible in backlog figures
 
 **Stakeholders:** NHS Operations Directors, Elective Recovery Programme leads, and Referral Management Centre teams.
 
@@ -106,5 +106,5 @@ jupyter notebook notebook/nhs_referral_demand_forecasting.ipynb
 
 ## Author
 
-**Yenlik Gaisina** · Data & Analytics Consultant · Cambridge Data Science with ML & AI Programme
+Yenlik Gaisina · Data Analyst portfolio project · Cambridge Data Science with ML & AI Programme
 [LinkedIn](https://www.linkedin.com/in/yenlik-gaisina/) · [Portfolio](https://gaisina.co.uk)
